@@ -1,0 +1,28 @@
+# Full stack — enable services as phases are implemented
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data/socmint.db
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # portal:
+  #   build: ./frontend/investigator-portal
+  #   ports:
+  #     - "5173:5173"
+
+  # neo4j:
+  #   image: neo4j:5
+  #   ports:
+  #     - "7474:7474"
+  #     - "7687:7687"
+
+  # mongodb:
+  #   image: mongo:7
+
+  # redis:
+  #   image: redis:7

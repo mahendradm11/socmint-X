@@ -1,0 +1,9 @@
+{
+  "name": "socmint-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix investigator-portal",
+    "build": "npm run build --prefix investigator-portal",
+    "install:portal": "npm install --prefix investigator-portal"
+  }
+}
