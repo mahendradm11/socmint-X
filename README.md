@@ -90,6 +90,25 @@ http://127.0.0.1:8000/docs
 
 Use the pre-filled Kannada/English sample posts on the Attribution page — same writing style should yield **HIGH** or **CONFIRMED** with shared bigrams and temporal overlap in the reasoning chain.
 
+## Deploy on Vercel (frontend only)
+
+Vercel hosts the **React portal**, not the FastAPI server. In the Vercel project settings:
+
+| Setting | Value |
+|---------|--------|
+| **Root Directory** | `frontend/investigator-portal` |
+| **Framework Preset** | Vite |
+| **Build Command** | `npm run build` |
+| **Output Directory** | `dist` |
+
+**Environment variable** (after you deploy the API to Render/Railway/Fly):
+
+```
+VITE_API_URL=https://your-fastapi-host.example.com
+```
+
+Redeploy after adding the variable. `vercel.json` includes SPA rewrites so routes like `/correlation` and `/login` do not return NOT_FOUND.
+
 ## Legal note
 
 Public-data investigation workflow only. Audit logs support DPDP Act 2023 purpose limitation and evidence integrity (IT Act Section 65B-ready hashing).

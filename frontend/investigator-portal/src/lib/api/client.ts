@@ -1,4 +1,7 @@
-const API = "/api/v1";
+/** Local dev: Vite proxy. Production (Vercel): set VITE_API_URL to your hosted FastAPI origin. */
+const API = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, "")}/api/v1`
+  : "/api/v1";
 
 function authHeaders(): HeadersInit {
   const token = localStorage.getItem("socmint_token");
